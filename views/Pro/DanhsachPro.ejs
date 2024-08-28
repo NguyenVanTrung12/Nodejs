@@ -1,0 +1,52 @@
+<%- include('../Admin/admin') %>
+<div class="container" >
+    <h2 style="margin-left: 100px;">Danh sách sản phẩm</h2>
+    <a href="/add-pro" class="btn btn-primary" style="margin-left: 100px;">Thêm sản phẩm  <i style='font-size:24px' class='fas'>&#xf055;</i></a>   
+    <table class="table table-bordered" style="margin-left: 100px;">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Tên </th>
+          <th>Giá</th>
+          <th>Giảm giá</th>
+          <th>Mô tả</th>
+          <th>Ảnh</th>
+          <th>Màu sắc</th>
+          <th>Kích thước</th>
+          <th>Danh mục</th>
+          <th>Thương hiệu</th>
+          <th>Nhà cung cấp</th>
+          <th>Trạng thái</th>
+          <th style="width: 150px;">Chức năng</th>
+        </tr>
+      </thead>
+      <tbody>
+       <% pro.forEach(item=>{ %>
+        <tr>
+          <td><%= item.id%></td>
+            <td><%= item.name %></td>            
+            <td><%= item.price %></td>
+            <td><%= item.sale %></td>
+            <td><%= item.description %></td>
+            <td><img src="Img/<%=item.img %>" alt="" width="100px"></td>
+            <td><%= item.color %></td>
+            <td><%= item.size %></td>
+            <td><%= item.categoryId %></td>
+            <td><%= item.brandId %></td>
+            <td><%= item.supplierId %></td>
+            <td><%= item.status %></td>
+            <td>
+              <form action="/Pro/delete/<%= item.id %>" method="post">
+                <a href="/edit-pro/<%= item.id %>" class="btn btn-primary"><i style='font-size:24px' class='fas'>&#xf044;</i></a>
+    
+                <button type="submit" class="btn btn-primary"><i style='font-size:24px' class='fas'>&#xf057;</i></button>
+                
+    
+              </form>
+            </td>
+        </tr>
+    <%}) %>
+        
+      </tbody>
+    </table>
+  </div>

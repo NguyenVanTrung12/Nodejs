@@ -1,0 +1,31 @@
+<%- include('../Admin/admin') %>
+<div class="container">
+    <h2 style="margin-left: 100px;">Thêm mới</h2>
+    <% if(typeof err!='undefined') { %>
+      <% err.forEach((item)=>{ %>
+        <h4><%=item.message %></h4>
+      <%}) %>
+    <%} %>
+    <form action="/add-brand" method="post"  style="margin-left: 100px;">
+      <div class="mb-3 mt-3">
+        <label for="email">Tên nhóm</label>
+        <input type="text" class="form-control"  placeholder="Enter name" name="brand_name">
+      </div>
+      <!-- <div class="mb-3 mt-3">
+        <label for="email">Hình ảnh</label>
+        <input type="file" class="form-control"  placeholder="Enter name" name="hinhanh">
+      </div> -->
+     
+    <div class="mb-3">
+            <label for="status">Trạng thái</label>
+            <select name="status">
+              <option value="#">Chọn</option>
+              <option value="1">Chưa cập nhật</option>
+              <option value="2">Cập nhật</option>
+            </select>
+        </div>
+      <button type="submit" class="btn btn-primary">Lưu<i class='fas fa-save' style="margin-left:10px"></i></button>
+      <a href="/brand" class="btn btn-primary">Trở lại <i class='fas fa-reply'
+        style="margin-left:10px"></i></a>
+    </form>
+  </div>

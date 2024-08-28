@@ -1,0 +1,36 @@
+<%- include('../Admin/admin') %>
+<div class="container" >
+    <h2 style="margin-left: 100px;">Danh sách sản phẩm</h2>
+    <a href="/add-tkadmin" class="btn btn-primary" style="margin-left: 100px;">Thêm sản phẩm  <i style='font-size:24px' class='fas'>&#xf055;</i></a>   
+    <table class="table table-bordered" style="margin-left: 100px;">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Tên nhóm</th>
+          <th>Email</th>
+          <th>Mật khẩu</th>     
+          <th>Chức năng</th>
+        </tr>
+      </thead>
+      <tbody>
+       <% adm.forEach(item=>{ %>
+        <tr>
+          <td><%= item.id%></td>
+            <td><%= item.name %></td>
+            <td><%= item.email %></td>
+            <td><%= item.password %></td>
+            <td>
+              <form action="/tkadmin/delete/<%= item.id %>" method="post">
+                <a href="/edit-tkadmin/<%= item.id %>" class="btn btn-primary"><i style='font-size:24px' class='fas'>&#xf044;</i></a>
+    
+                <button type="submit" class="btn btn-primary"><i style='font-size:24px' class='fas'>&#xf057;</i></button>
+                
+    
+              </form>
+            </td>
+        </tr>
+    <%}) %>
+        
+      </tbody>
+    </table>
+  </div>

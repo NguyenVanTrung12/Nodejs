@@ -1,0 +1,15 @@
+* {
+    font-family: cursive;
+    margin: 0;
+}
+.bo {
+    border:1px dashed #e81cff;
+    color: white;
+}
+
+.l {
+    background-image: url('/dist/img/back1.webp');
+}
+body {
+    background-image: url('/dist/img/back.png');
+}

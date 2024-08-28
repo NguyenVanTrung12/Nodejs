@@ -1,0 +1,36 @@
+<%- include('../Admin/admin') %>
+<div class="container">
+    <h2 style="margin-left: 100px;">Thêm nhà cung cấp</h2>
+    <% if(typeof err!='undefined') { %>
+      <% err.forEach((item)=>{ %>
+        <h4><%=item.message %></h4>
+      <%}) %>
+    <%} %>
+    <form action="/add-sup" method="post"  style="margin-left: 100px;">
+      <div class="mb-3 mt-3">
+        <label for="email">Tên nhóm</label>
+        <input type="text" class="form-control"  placeholder="Enter name" name="name">
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="email">Email</label>
+        <input type="text" class="form-control"  placeholder="Enter email" name="email">
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="email">Địa chỉ</label>
+        <input type="text" class="form-control"  placeholder="Enter address" name="address">
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="phone">Điện thoại</label>
+        <input type="text" class="form-control"  placeholder="Enter phone_Number" name="phone_Number">
+      </div>
+      <!-- <div class="mb-3 mt-3">
+        <label for="email">Hình ảnh</label>
+        <input type="file" class="form-control"  placeholder="Enter name" name="hinhanh">
+      </div> -->
+     
+    
+      <button type="submit" class="btn btn-primary">Lưu<i class='fas fa-save' style="margin-left:10px"></i></button>
+      <a href="/sup" class="btn btn-primary">Trở lại <i class='fas fa-reply'
+        style="margin-left:10px"></i></a>
+    </form>
+  </div>

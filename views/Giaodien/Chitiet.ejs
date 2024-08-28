@@ -1,0 +1,57 @@
+<%- include('../TrangchuLienket/header') %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+
+  <div class="row">
+    <% Ct.forEach(item=>{%>
+<h2 style="color: rgb(14, 5, 172);font-weight: 600;">Trang Chi tiết Sản Phẩm Cá Cảnh : <%=item.name%></h2>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <section id="lens">
+
+              
+              <div class="large-5 column" >
+                <div class="xzoom-container">
+                  <img class="xzoom3" src="/img/<%=item.img%>" width="350px" style="box-shadow: 2px 2px 2px 2px; margin-left:150px ;"/>
+
+             </div>
+              </div>
+              <div class="large-7 column"></div>
+
+          </section>
+      </div>
+
+      <%})%>
+      <% Ct.forEach(item=>{%>
+
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="ctt">
+              <h6 class="card-title" style="font-size:15px ; margin-top:10px;"><%= item.name%></h6>
+              <p class="card-text p" >
+                Giá: <%= new Intl.NumberFormat('VND', { maximumSignificantDigits: 3 }).format(item.sale,) %> <sup>đ</sup></p>
+              <p class="card-text p"><del><del style="color: red; ">
+                Giá: <%= new Intl.NumberFormat('VND', { maximumSignificantDigits: 3 }).format(item.price,) %> <sup>đ</sup></del></del></p>
+              <p class="card-text p">Mô tả: <%=item.description%></p>
+              <p class="card-text p">Size: <%=item.size%></p>
+              <p class="card-text p">Màu sắc:<%=item.color%></p>
+              <a href="/" class="btn btn-primary add"title="Quay lại trang chủ">Quay lại <i class='fas fa-reply'
+              style="margin-left:10px"></i></a>
+              <a href="" class="btn btn-primary add">Add to cart <span><i class="fas fa-cart-plus"></i></span></a>
+          </div>
+      </div>
+      <%})%>
+  </div>
+
+</div>
+<%- include('../TrangchuLienket/footer') %>

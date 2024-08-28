@@ -1,0 +1,22 @@
+<%- include('../Admin/admin') %>
+<div class="container mt-3">
+    <h2 style="margin-left: 100px;">Sửa danh mục sản phẩm</h2>
+    <form action="/post-edit-category" method="post"  style="margin-left: 100px;">
+      <div class="mb-3 mt-3">
+        <label for="email">Tên nhóm</label>
+        <input type="text" class="form-control"  placeholder="Enter name" name="category_name" value="<%= cate.category_name%>">
+        <input type="hidden" name="id" value="<%= cate.id%>">
+      </div>
+      <div class="mb-3">
+        <label for="status">Trạng thái</label>
+        <select name="status" value="<%= cate.status%>">
+          <option value="#">Chọn</option>
+          <option value="1">Chưa cập nhật</option>
+          <option value="2">Cập nhật</option>
+        </select>
+    </div>
+      <button type="submit" class="btn btn-primary">Lưu<i class='fas fa-save' style="margin-left:10px"></i></button>
+      <a href="/category" class="btn btn-primary">Trở lại <i class='fas fa-reply'
+        style="margin-left:10px"></i></a>
+    </form>
+  </div>

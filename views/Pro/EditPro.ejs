@@ -1,0 +1,78 @@
+<%- include('../Admin/admin') %>
+<div class="container">
+    <h2 style="margin-left: 100px;">Thêm danh sách sản phẩm</h2>
+    <% if(typeof err!='undefined') { %>
+      <% err.forEach((item)=>{ %>
+        <h4><%=item.message %></h4>
+      <%}) %>
+    <%} %>
+    <form action="/post-edit-pro" method="post"  style="margin-left: 100px;" enctype="multipart/form-data">
+      <div class="mb-3 mt-3">
+        <label for="email">Tên nhóm</label>
+        <input type="text" class="form-control"  placeholder="Enter name" name="name" value="<%= pro.name%>">
+        <input type="hidden" name="id"value="<%= pro.id%>">
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="email">Giá</label>
+        <input type="text" class="form-control"  placeholder="Enter price" name="price"value="<%= pro.price%>">
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="email">Giảm giá</label>
+        <input type="text" class="form-control"  placeholder="Enter sale" name="sale"value="<%= pro.sale%>">
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="email">Mô tả</label>
+        <input type="text" class="form-control"  placeholder="Enter description" name="description"value="<%= pro.description%>">
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="email">Hình ảnh</label>
+        <input type="file" name="hinhanh" value="<%= pro.hinhanh%>">
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="email">Màu sắc</label>
+        <input type="text" class="form-control"  placeholder="Enter color" name="color" value="<%= pro.color%>">
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="email">Kích thước</label>
+        <input type="text" class="form-control"  placeholder="Enter size" name="size" value="<%= pro.size%>">
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="email">Danh sách sản phẩm</label>
+        <select name="categoryId"  >
+            <option value="#">Chọn</option>
+            <% cate.forEach(item=>{%>
+            <option value="<%=item.id%>"><%=item.category_name%></option>
+           <% }) %>
+        </select>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="email">Thương hiệu</label>
+        <select name="brandId" >
+            <option value="#">Chọn</option>
+            <% brand.forEach(item=>{%>
+            <option value="<%=item.id%>"><%=item.brand_name%></option>
+           <% }) %>
+        </select>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="email">Nhà cung cấp</label>
+        <select name="supplierId" >
+            <option value="#">Chọn</option>
+            <% sup.forEach(item=>{%>
+            <option value="<%=item.id%>"><%=item.name%></option>
+           <% }) %>
+        </select>
+      </div>
+    <div class="mb-3">
+            <label for="status">Trạng thái</label>
+            <select name="status">
+              <option value="#">Chọn</option>
+              <option value="1">Sản phẩm giảm giá</option>
+              <option value="2">Sản phẩm bán chạy</option>
+            </select>
+        </div>
+      <button type="submit" class="btn btn-primary">Lưu<i class='fas fa-save' style="margin-left:10px"></i></button>
+      <a href="/pro" class="btn btn-primary">Trở lại <i class='fas fa-reply'
+        style="margin-left:10px"></i></a>
+    </form>
+  </div>
